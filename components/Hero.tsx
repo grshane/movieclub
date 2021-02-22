@@ -1,7 +1,25 @@
-import { faFilm } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FC } from 'react';
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Movie from '../types/interfaces/movie';
 
-const Hero = () => {
+interface Props {
+  image?: string;
+  movie: Movie;
+}
+
+const Hero: FC<Props> = ({
+  movie: {
+    completion_date,
+    name,
+    rotten_tomatoes,
+    watch_link,
+    rating,
+    imdb_link,
+  },
+  image,
+}) => {
+  console.log(image);
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -23,9 +41,10 @@ const Hero = () => {
             >
               <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                 <div className="flex items-center justify-between w-full md:w-auto">
-                  <a href="#">
-                    <span className="sr-only">Workflow</span>
-                    <FontAwesomeIcon icon={faFilm} />
+                  <a href="#" className="text-center flex justify-center">
+                    <FontAwesomeIcon className="h-10 pr-2" icon={faFilm} />
+                    Phase2 <br />
+                    Movie Club
                   </a>
                   <div className="-mr-2 flex items-center md:hidden">
                     <button
@@ -58,35 +77,14 @@ const Hero = () => {
                   href="#"
                   className="font-medium text-gray-500 hover:text-gray-900"
                 >
-                  Product
-                </a>
-
-                <a
-                  href="#"
-                  className="font-medium text-gray-500 hover:text-gray-900"
-                >
-                  Features
-                </a>
-
-                <a
-                  href="#"
-                  className="font-medium text-gray-500 hover:text-gray-900"
-                >
-                  Marketplace
-                </a>
-
-                <a
-                  href="#"
-                  className="font-medium text-gray-500 hover:text-gray-900"
-                >
-                  Company
+                  Movie List
                 </a>
 
                 <a
                   href="#"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
-                  Log in
+                  Submit A Movie
                 </a>
               </div>
             </nav>
@@ -176,33 +174,38 @@ const Hero = () => {
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">Data to enrich your</span>
-                <span className="block text-indigo-600 xl:inline">
-                  online business
+                <span className="block xl:inline">{name}</span>
+                <span className="p-2 text-lg border-2">{rating}</span>
+                <br />
+                <span className="block text-indigo-600 text-2xl xl:inline">
+                  Discussion: {completion_date}
                 </span>
               </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat aliqua.
-              </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
                   <a
-                    href="#"
+                    href={watch_link}
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                   >
-                    Get started
+                    Watch
                   </a>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <a
-                    href="#"
+                    href={rotten_tomatoes}
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                   >
-                    Live demo
+                    Rotten Tomatoes
                   </a>
                 </div>
+              </div>
+              <div className="my-4">
+                <a
+                  className="text-indigo-700 hover:text-indigo-900 hover:underline"
+                  href={imdb_link}
+                >
+                  Content Guide
+                </a>
               </div>
             </div>
           </main>
@@ -211,8 +214,8 @@ const Hero = () => {
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixqx=OBfCrfKx3N&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-          alt=""
+          src={image}
+          alt={name}
         />
       </div>
     </div>

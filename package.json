@@ -8,8 +8,37 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.11",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "apollo-boost": "^0.4.9",
+    "eslint": "^7.20.0",
+    "graphql": "^15.5.0",
+    "graphql-tag": "^2.11.0",
     "next": "10.0.7",
+    "next-apollo": "^5.0.4",
     "react": "17.0.1",
+    "react-apollo": "^3.1.5",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@stencil/eslint-plugin": "^0.3.1",
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "autoprefixer": "^10.2.4",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "postcss": "^8.2.6",
+    "prettier": "^2.2.1",
+    "tailwindcss": "^2.0.3",
+    "typescript": "^4.1.5"
   }
 }
